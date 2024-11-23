@@ -58,6 +58,7 @@ describe('Calculate Discount', () => {
     })
 })
 
+// Parameterized tests.
 describe('ValidateUserInput', () => {
     //Handling non-string usernames
     it('should handle non-string usernames', () => {
@@ -85,6 +86,7 @@ describe('ValidateUserInput', () => {
 
 })
 
+// Parameterized tests.
 describe('Test price in range', () => {
     it.each([
         {scenario: 'price < min', price: -10, result: false},
@@ -97,6 +99,7 @@ describe('Test price in range', () => {
     } )
 })
 
+// Parameterized tests.
 describe('Username length in range', () => {
     it.each([
         {scenario: 'username is too short', username: 'user', result: false},
