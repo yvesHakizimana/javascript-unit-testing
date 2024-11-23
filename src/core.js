@@ -8,21 +8,25 @@ export function getCoupons() {
 
 // Lesson: Positive and negative testing
 export function calculateDiscount(price, discountCode) {
+  // Handling both non-numeric and negative prices
   if (typeof price !== 'number' || price <= 0) {
     return 'Invalid price';
   }
 
+  // Handling non-string discount code
   if (typeof discountCode !== 'string') {
     return 'Invalid discount code';
   }
 
   let discount = 0;
+  // Handling Invalid discount codes
   if (discountCode === 'SAVE10') {
     discount = 0.1;
   } else if (discountCode === 'SAVE20') {
     discount = 0.2;
   }
 
+  // Handling valid discount codes.
   return price - price * discount;
 }
 
@@ -30,10 +34,12 @@ export function calculateDiscount(price, discountCode) {
 export function validateUserInput(username, age) {
   let errors = [];
 
+  // Handling non-string usernames and also usernames not having length of 3
   if (typeof username !== 'string' || username.length < 3) {
     errors.push('Invalid username');
   }
 
+  // Handling non-numeric ages or less age
   if (typeof age !== 'number' || age < 18) {
     errors.push('Invalid age');
   }
@@ -50,6 +56,8 @@ export function isPriceInRange(price, min, max) {
 export function isValidUsername(username) {
   const minLength = 5;
   const maxLength = 15;
+
+  if(!username) return false;
 
   return username.length >= minLength && username.length <= maxLength;
 }
