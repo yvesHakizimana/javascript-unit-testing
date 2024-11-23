@@ -57,12 +57,12 @@ export function isOnline() {
   const [open, close] = availableHours;
   const currentHour = new Date().getHours();
 
-  return currentHour >= open && currentHour <= close;
+  return currentHour >= open && currentHour < close;
 }
 
 // Exercise
 export function getDiscount() {
   const today = new Date();
-  const isChristmasDay = today.getMonth() === 11 && today.getDate() === 25;
+  const isChristmasDay = today.getMonth() === 11   && today.getDate() === 25;
   return isChristmasDay ? 0.2 : 0;
 }
